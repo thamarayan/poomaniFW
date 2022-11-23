@@ -387,7 +387,9 @@ router.get('/printBillOriginal/:id', function(req,res,next){
       // close the browser
           await browser.close();
   
-  })()
+  })().catch((error) =>{
+    console.error("the message is " + error.message);
+  });
 
 })
      
