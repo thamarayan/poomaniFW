@@ -358,7 +358,6 @@ router.get('/printBillOriginal/:id', function(req,res,next){
               '--no-sandbox',
               '--disable-setuid-sandbox',
             ],
-            // executablePath: '/path/to/Chrome',
             headless: true
           })  
   
