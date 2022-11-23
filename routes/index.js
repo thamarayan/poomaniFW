@@ -354,6 +354,10 @@ router.get('/printBillOriginal/:id', function(req,res,next){
     
       // launch a new chrome instance
           const browser = await puppeteer.launch({
+            args: [
+              '--no-sandbox',
+              '--disable-setuid-sandbox',
+            ],
             headless: true
           })  
   
