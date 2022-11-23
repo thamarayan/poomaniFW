@@ -355,17 +355,18 @@ router.get('/printBillOriginal/:id', function(req,res,next){
     
       // launch a new chrome instance
           const browser = await puppeteer.launch({
-            // args: [
-            //   '--no-sandbox',
-            //   '--disable-setuid-sandbox',
-            // ],
+            args: [
+              '--no-sandbox',
+            ],
             // executablePath: '/node_modules/chromium',
             headless: true
           })  
   
+        
+
       // create a new page
          const page = await browser.newPage();
-  
+         await page.setCacheEnabled(false); 
       // set your html as the pages content
           
           await page.setContent(html, {
