@@ -357,9 +357,9 @@ router.get('/printBillOriginal/:id', function(req,res,next){
           const browser = await puppeteer.launch({
             args: [
               '--no-sandbox',
-              '--disable-setuid-sandbox',
+              // '--disable-setuid-sandbox',
             ],
-            executablePath: '.\node_modules\chromium',
+            executablePath: '/node_modules/chromium',
             headless: true
           })  
   
