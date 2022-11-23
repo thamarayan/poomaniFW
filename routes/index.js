@@ -5,7 +5,7 @@ var Product = require('../modals/products');
 var Transport = require('../modals/transport');
 var Bill = require('../modals/bills');
 var ejs = require('ejs');
-const chromium = require('chromium');
+// const chromium = require('chromium');
 const { ToWords } = require('to-words');
 
 const toWords = new ToWords();
@@ -355,11 +355,11 @@ router.get('/printBillOriginal/:id', function(req,res,next){
     
       // launch a new chrome instance
           const browser = await puppeteer.launch({
-            args: [
-              '--no-sandbox',
-              // '--disable-setuid-sandbox',
-            ],
-            executablePath: '/node_modules/chromium',
+            // args: [
+            //   '--no-sandbox',
+            //   '--disable-setuid-sandbox',
+            // ],
+            // executablePath: '/node_modules/chromium',
             headless: true
           })  
   
