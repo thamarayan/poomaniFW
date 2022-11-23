@@ -353,12 +353,25 @@ router.get('/printBillOriginal/:id', function(req,res,next){
 
     (async () => {
     
+      const PCR = require("puppeteer-chromium-resolver");
+      const option = {
+        revision: "",
+        detectionPath: "",
+        folderName: ".chromium-browser-snapshots",
+        defaultHosts: ["https://storage.googleapis.com", "https://npm.taobao.org/mirrors"],
+        hosts: [],
+        cacheRevisions: 2,
+        retry: 3,
+        silent: false
+    };
+      const stats = await PCR(option);
+
       // launch a new chrome instance
           const browser = await puppeteer.launch({
             args: [
               '--no-sandbox',
             ],
-            // executablePath: '/node_modules/chromium',
+            executablePath: stats.executablePath,
             headless: true
           })  
   
