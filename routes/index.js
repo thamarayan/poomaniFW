@@ -5,6 +5,7 @@ var Product = require('../modals/products');
 var Transport = require('../modals/transport');
 var Bill = require('../modals/bills');
 var ejs = require('ejs');
+const chromium = require('chromium');
 const { ToWords } = require('to-words');
 
 const toWords = new ToWords();
@@ -358,6 +359,7 @@ router.get('/printBillOriginal/:id', function(req,res,next){
               '--no-sandbox',
               '--disable-setuid-sandbox',
             ],
+            executablePath: '.\node_modules\chromium',
             headless: true
           })  
   
